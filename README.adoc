@@ -5,5 +5,6 @@
 
 {travisCI}[image:{travisCIicon}[Build Status]]
 
-This is a temporary repository for test code. Don't use this for production!
+_This is a temporary repository for test code. Don't use this for production!_
+
 
