@@ -1,35 +1,20 @@
-## It is not really python, but there is no R support on Travis CI yet
-language: python
+language: r
 
-## Environment variables
-env:
-  global:
-    - R_LIBS_USER=~/R
-  matrix:
-    - TARGET=travis
-    - TARGET=integration DISPLAY=:99.0
+# Be strict when checking our package
+warnings_are_errors: true
 
-## Capturing state, early exit if no integration test is needed
-before_install:
-  - env | sort
-  - if [ ${TARGET} = integration ]; then
-      if ! make integration-need; then
-        echo "NOTE:"" Integration test skipped. To enable, create a branch named ${TRAVIS_BRANCH} in ${TRAVIS_REPO_SLUG}-examples.";
-        exit 0;
-      fi;
-    fi
+# System dependencies for HTTP calling
+apt_packages:
+ - libcurl4-openssl-dev
+ - libxml2-dev
+r_binary_packages:
+ - svUnit
+ - dplyr
 
-## Install dependencies
-install:
-  - sudo apt-add-repository -y "deb http://cran.rstudio.com/bin/linux/ubuntu `lsb_release -cs`/"
-  - sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E084DAB9
-  - sudo apt-add-repository -y ppa:marutter/c2d4u
-  - sudo apt-get update
-  - sudo apt-get install r-base-dev r-cran-xml r-cran-rcurl r-cran-rgl r-recommended
-  - "[ ! -d ${R_LIBS_USER} ] && mkdir ${R_LIBS_USER}"
-  - R --version
-  - R -e '.libPaths(); sessionInfo()'
-  - Rscript -e 'install.packages("dplyr", dep = TRUE, repos = c("http://R-forge.R-project.org", "http://cran.rstudio.org"))'
+# Install the bleeding edge version of a package from github (eg to pick
+# up a not-yet-released bugfix)
+r_github_packages:
+ - hadley/httr
 
 # run tests
 script:
