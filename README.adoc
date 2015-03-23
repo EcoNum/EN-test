@@ -1,10 +1,7 @@
-:travisCI: https://travis-ci.org/EcoNum/EN-test
-:travisCIicon: https://travis-ci.org/EcoNum/EN-test.png?branch=master
 
 # Test code for EcoNum
 
-{travisCI}[image:{travisCIicon}[Build Status]]
+image:https://travis-ci.org/EcoNum/EN-test.svg["Build Status", link="https://travis-ci.org/EcoNum/EN-test"]
+
 
 _This is a temporary repository for test code. Don't use this for production!_
-
-
