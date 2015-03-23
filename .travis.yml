@@ -18,5 +18,5 @@ r_github_packages:
 
 # run tests
 script:
-  - make ${TARGET}
+  - run_tests
   
