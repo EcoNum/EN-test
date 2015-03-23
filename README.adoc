@@ -27,3 +27,4 @@ Make the **ENtest** package available in your R session:
 Get help about this package:
 
     library(help = "ENtest")
+    ?ENtest
