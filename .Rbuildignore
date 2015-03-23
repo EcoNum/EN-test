@@ -1,0 +1,11 @@
+.DS_Store
+.gitignore
+.git
+.git/*
+NEWS.adoc
+FAQ.adoc
+Makefile
+^\.Rproj\.user$
+^\.*\Rproj$
+^\.travis\.yml$
+^.*\.Rproj$

@@ -1,0 +1,17 @@
+Package: EN-test
+Type: Package
+Title: Test Code for EcoNum
+Version: 1.0-0
+Date: 2015-03-23
+Author: Philippe Grosjean
+Authors@R: c(person("Philippe", "Grosjean", email = "phgrosjean@sciviews.org",
+    role = c("aut", "cre")))
+Maintainer: Philippe Grosjean <phgrosjean@sciviews.org>
+Description: this is temporary R code for testing and experimenting purposes.
+Depends: R (>= 3.0-0)
+Imports: dplyr
+Suggests: svUnit
+License: MIT
+URL: https://github.com/EcoNum/EN-test
+BugReports: econum@umons.ac.be
+VignetteBuilder: knitr
