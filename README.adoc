@@ -1,4 +1,9 @@
-## Test code for EcoNum
+:travisCI: https://travis-ci.org/EcoNum/EN-test
+:travisCIicon: https://travis-ci.org/EcoNum/EN-test
+
+# Test code for EcoNum
+
+{travisCI}[image:{travisCIicon}[Build Status]]
 
 This is a temporary repository for test code...
 
