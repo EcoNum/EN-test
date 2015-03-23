@@ -1,4 +1,4 @@
-Package: EN_test
+Package: ENtest
 Type: Package
 Title: Test Code for EcoNum
 Version: 1.0-0
@@ -14,4 +14,3 @@ Suggests: svUnit
 License: MIT
 URL: https://github.com/EcoNum/EN-test
 BugReports: econum@umons.ac.be
-VignetteBuilder: knitr
