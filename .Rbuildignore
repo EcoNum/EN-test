@@ -5,6 +5,7 @@
 NEWS.adoc
 FAQ.adoc
 Makefile
+.Rprofile
 ^\.Rproj\.user$
 ^\.*\Rproj$
 ^\.travis\.yml$
