@@ -4,4 +4,26 @@
 image:https://travis-ci.org/EcoNum/EN-test.svg["Build Status", link="https://travis-ci.org/EcoNum/EN-test"]
 
 
-_This is a temporary repository for test code. Don't use this for production!_
+_**Warning:** This is a temporary repository for test code. Don't use this for production!_
+
+## Installation
+
+Make sure you have the **devtools** R package installed:
+
+    install.packages("devtools")
+
+Use `install_github()` to install the **ENtest** package:
+
+    devtools::install_github("EcoNum/EN-test")
+    
+R should install all required dependencies automatically, and then it should compile and install *ENtest*.
+
+## Usage
+
+Make the **ENtest** package available in your R session:
+
+    library("ENtest")
+    
+Get help about this package:
+
+    library(help = "ENtest")
