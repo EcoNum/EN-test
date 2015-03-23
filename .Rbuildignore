@@ -2,6 +2,7 @@
 .gitignore
 .git
 .git/*
+README.adoc
 NEWS.adoc
 FAQ.adoc
 Makefile
