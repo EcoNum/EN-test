@@ -1,5 +1,5 @@
 :travisCI: https://travis-ci.org/EcoNum/EN-test
-:travisCIicon: https://travis-ci.org/EcoNum/EN-test
+:travisCIicon: https://travis-ci.org/EcoNum/EN-test.png?branch=master
 
 # Test code for EcoNum
 
