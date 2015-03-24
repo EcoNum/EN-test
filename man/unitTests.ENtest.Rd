@@ -12,7 +12,7 @@
 \author{Philippe Grosjean (\email{phgrosjean@sciviews.org})}
 
 \examples{
-if (require(ENtest)) {
+if (require(svUnit)) {
     clearLog()
     runTest(svSuite("package:ENtest"), "ENtest")
  
