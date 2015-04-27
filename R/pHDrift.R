@@ -3,7 +3,7 @@
 pHDrift <- function (pHini, Alk, TimeElapsed__min,CO2ref=400,tau=560.2) {
     
     #function of water/gas exchange
-    mod <- function(x,delta0, tau) delta0 * exp(-(x/tau)) 
+    model <- function(x,delta0, tau) delta0 * exp(-(x/tau)) 
     #x = time
     #delta0 =  delta pCO2 between water and ai
     # tau = cinetic value, estimated 560.2 min at 25C
