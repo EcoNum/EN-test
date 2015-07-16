@@ -2,6 +2,8 @@
 # Test code for EcoNum
 
 image:https://travis-ci.org/EcoNum/EN-test.svg["Build Status", link="https://travis-ci.org/EcoNum/EN-test"]
+image:https://coveralls.io/repos/EcoNum/EN-test/badge.svg?branch=master&service=github["Coverage Status", link="https://coveralls.io/github/EcoNum/EN-test?branch=master"]
+image:http://www.r-pkg.org/badges/version/ENtest["CRAN Status", link="http://cran.r-project.org/package=ENtest"]
 
 
 _**Warning:** This is a temporary repository for test code. Don't use this for production!_
