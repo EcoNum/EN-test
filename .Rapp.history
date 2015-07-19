@@ -1,0 +1,527 @@
+iris[1]
+Iris[1]
+Iris[1,]
+iris[1,]
+Iris
+class(Iris)
+class(Iris) <- c("dataframe", class(Iris))
+dplyr:::print.tbl
+dplyr:::print.tbl_dt
+dplyr:::print.tbl_df
+apropos("dataframe")
+tbl_dt
+setattr
+library(data.table)#
+library(dplyr)#
+dataframe <- function (data, copy = TRUE) {#
+    data <- dplyr::tbl_dt(data, copy = copy)#
+    ## Superclass is 'dataframe'#
+    data.table::setattr(data, "class", c("dataframe", class(data)))#
+    data#
+}
+trunc_mat
+dim_desc
+print.dataframe <- function (x, ..., n = NULL, width = NULL) #
+{#
+    cat("Source: dataframe ", dplyr::dim_desc(x), "\n\n", sep = "")#
+    print(dplyr::trunc_mat(x, n = n, width = width))#
+    invisible(x)#
+}
+apropos("as.tbl")
+as.tbl
+as.tbl.data.frame
+dplyr:::as.tbl.data.frame
+as.tbl.data.table
+as.tbl_cube
+?as.tbl_cube
+as.tbl
+methods("as.tbl")
+dplyr:::as.tbl.tbl
+dplyr:::as.tbl.data.table
+apropos("is.tbl")
+is.tbl
+methods("tbl_dt")
+methods(class = "tbl_dt")
+library(data.table)#
+library(dplyr)#
+dataframe <- function (data, copy = TRUE)#
+{#
+    data <- dplyr::tbl_dt(data, copy = copy)#
+    ## Superclass is 'dataframe'#
+    data.table::setattr(data, "class", c("dataframe", class(data)))#
+    data#
+}#
+#
+## as.dataframe is a generic#
+as.dataframe <- function (x, ...)#
+    UseMethod("as.dataframe")#
+#
+## Trivial    #
+as.dataframe.dataframe <- function (x, ...)#
+    x#
+#
+## On the contrary to as_tbl, both data.frame and data.table are#
+## converted into the same object inheriting from tbl_dt, data.table and data.frame#
+as.dataframe.data.frame <- function (x, ...)#
+    dataframe(x, ...)#
+#
+as.dataframe.data.table <- function (x, ...)#
+    dataframe(x, ...)#
+## Check if an object is a dataframe#
+is.dataframe <- function (x)#
+    inherits(x, "dataframe")#
+#
+## Inspired from dplyr:::print.tbl_dt()#
+print.dataframe <- function (x, ..., n = NULL, width = NULL) #
+{#
+    cat("Source: dataframe ", dplyr::dim_desc(x), "\n\n", sep = "")#
+    print(dplyr::trunc_mat(x, n = n, width = width))#
+    invisible(x)#
+}
+head
+head.tbl
+dplyr:::head.tbl
+dplyr:::head.tbl_dt
+head(Iris)
+class(head(Iris))
+head(iris) # But converts into a data.frame => rewrite it!#
+Iris[1] # This is the data.table [ method!#
+iris[1] # Different from this one!
+class(Iris[1])
+class(Iris[1,])
+class(Iris[, 1])
+Iris[, 1]
+Iris[, 1, 1]
+Iris[, 1]
+iris[, 1]
+class(as.data.frame(Iris))
+class(as.dataframe(Iris))
+Iris
+print.dataframe <- function (x, ..., n = NULL, width = NULL) #
+{#
+    cat("Source: local dataframe ", dplyr::dim_desc(x), "\n\n", sep = "")#
+    print(dplyr::trunc_mat(x, n = n, width = width))#
+    invisible(x)#
+}
+Iris
+apropos("prettyprint")
+names(Iris)
+print.dataframe <- function (x, ..., n = NULL, width = NULL) #
+{#
+    cat("Source: local dataframe ", dplyr::dim_desc(x), "\n\n", sep = "")#
+    print(dplyr::trunc_mat(x, n = n, width = width))#
+    invisible(x)#
+}
+apropos("prettyPrint")
+prettyPrint <- function (x, ...)#
+{#
+    ## Separate label from unit with __#
+    x <- strsplit(x, "__", fixed = TRUE)#
+    x#
+}
+prettyPrint(c("Sepal_length__mm", "Test__kg__comment", "aaa"))
+prettyPrint <- function (x, ...)#
+{#
+    ## Separate label from unit with __#
+    x <- strsplit(x, "__", fixed = TRUE)#
+    x <- sapply(x, function (x)#
+        if (length(x) < 2) x else paste0(x[1], " (", x[2], ")")#
+    )#
+    x#
+}
+prettyPrint(c("Sepal_length__mm", "Test__kg__comment", "aaa"))
+prettyPrint <- function (x, ...)#
+{#
+    ## Format label#
+    formatLabel <- function (x) {#
+        gsub("_", " ", x)#
+    }#
+    ## Format unit (do nothing for the moment)#
+    formatUnit <- function (x) {#
+        x#
+    }#
+    ## Separate label from unit with __#
+    x <- strsplit(x, "__", fixed = TRUE)#
+    x <- sapply(x, function (x)#
+        if (length(x) < 2) {#
+            formatLabel(x)#
+        } else {#
+            paste0(formatLabel(x[1]), " (", formatUnit(x[2]), ")")#
+        }#
+    )#
+    x#
+}
+prettyPrint(c("Sepal_length__mm", "Test__kg__comment", "aaa"))
+print.dataframe <- function (x, ..., n = NULL, width = NULL) #
+{#
+    cat("Source: local dataframe ", dplyr::dim_desc(x), "\n\n", sep = "")#
+    labels <- prettyPrint(names(x))#
+    if (!identical(labels, names(x)))#
+        print(labels)#
+    print(dplyr::trunc_mat(x, n = n, width = width))#
+    invisible(x)#
+}
+Iris
+prettyPrint(names(Iris))
+names(Iris) <- c("Sepal_length__mm", "Sepal_width__mm", "Petal_length__mm",#
+    "Petal_width__mm", "Species")#
+names(Iris)
+Iris
+setnames
+?setnames
+trunc_mat
+dplyr:::print.trunc_mat
+names(Iris) <- c("Sepal_length__cm", "Sepal_width__cm", "Petal_length__cm",#
+    "Petal_width__cm", "Species")
+Iris
+Iris$Species
+iris$Species
+iris[["Species"]]
+iris$.("Species")
+?list
+?numeric
+numeric()
+numeric(2)
+numeric(1:2)
+numeric(numeric(0))
+numeric("2")
+?c
+ll <- list(A = 1, c = "C")#
+## do *not* use#
+c(ll, d = 1:3) # which is == c(ll, as.list(c(d = 1:3))#
+## but rather#
+c(ll, d = list(1:3))  # c() combining two lists
+unlist(ll)
+?c
+c(list(A = c(B = 1)), recursive = TRUE)
+list(A = c(B = 1)
+)
+c(list(A = c(B = 1)), recursive = FALSE)
+list(A = c(B = 1, D = 2)
+)
+c(list(A = c(B = 1, D = 2)), recursive = FALSE)
+c(list(A = c(B = 1, D = 2)), recursive = TRUE)
+c(options(), recursive = TRUE)#
+c(list(A = c(B = 1, C = 2), B = c(E = 7)), recursive = TRUE)
+unlist(list(A = c(B = 1, C = 2), B = c(E = 7)), recursive = TRUE)
+unlist(list(A = c(B = 1, C = 2), B = c(E = 7)), recursive = FALSE)
+c
+unlist(options())
+list
+`length<-`
+length(1:3) <- 2
+x <- 1:3
+length(x) <- 2
+x
+length(x) <- 5
+x
+length(iris)
+?list
+numeric
+num <- function (...)#
+    as.numeric(c(...))
+num()
+numeric()
+num(1)
+num(1:3)
+num(1:3, 5, 7)
+args(vector)
+num(a = "1", b = 6.7, c = "r")
+?as.vector
+num <- function (...)#
+{#
+    res <- c(...)#
+    res[] <- as.numeric(res) # To preserve attributes like names#
+    res#
+}
+num(a = "1", b = 6.7, c = "r")
+?vector
+?c
+num <- function (...)#
+{#
+    vec <- c(...)#
+    res <- as.numeric(vec)#
+    names(res) <- names(vec)#
+    res#
+}
+num(a = "1", b = 6.7, c = "r")
+args(unlist)
+unlist(1, 2, c = 3)
+unlist(c(1, 2, c = 3))
+class(unlist(c(1, 2, c = 3)))
+?comment
+Iris
+comment(Iris)
+comment(Iris) <- "Anderson's famous iris data set"
+Iris
+comment(Iris)
+ll <- list(a = 1, b = list(c = 2, d = 3))
+ll
+ll <- list(a = 1, b = list(c = 2, d = 3:4))
+ll
+c(ll)
+c(ll, recursive = TRUE)
+unlist(ll, recursive = TRUE)
+unlist(ll, recursive = FALSE)
+unlist(matrix(1:12, nrow = 3), recursive = TRUE)
+c(matrix(1:12, nrow = 3), recursive = TRUE)
+c(as.data.frame(matrix(1:12, nrow = 3)), recursive = TRUE)
+(as.data.frame(matrix(1:12, nrow = 3))
+)
+num <- function (...)#
+{#
+    vec <- c(..., recursive = TRUE)#
+    res <- as.numeric(vec)#
+    names(res) <- names(vec)#
+    res#
+}#
+num() # = numeric()#
+num(1:3, 5, 6)#
+num(a = 1, b = "2", c = "abc") # Keep names
+num(1, list(b= 2, c = list(d = 3, e = 4:5)))
+is.numeric
+isNum <- is.numeric#
+isNum(1)#
+isNum(1L)
+isNum
+as.numeric
+asNum <- as.numeric # This would cause problems in a CRAN package!#
+asNum("2")
+asNum(a = "2")
+asNum(c(a = "2"))
+as
+as("2", "numeric")
+class(as("2", "numeric"))
+?as
+attributes(as("2", "numeric"))
+cumprod(1:3)
+prod(1:3)
+?prod
+dim(1) <- c(2, 3, 4)
+x <- 1
+dim(x) <- c(2, 3, 4)
+dim(x) <- 1
+attributes(x)
+?rep
+zeros <- function (dim = 1, class = "numeric")#
+{#
+    if (length(dim) == 1) {#
+        as(rep_len(0, dim), class)#
+    } else {#
+        res <- as(rep_len(0, prod(dim)), class)#
+        dim(res) <- dim#
+        res#
+    }#
+}#
+zeros()#
+zeros(5)#
+zeros(c(5, 5), "character")
+zeros <- function (dim = 0, class = "numeric")#
+{#
+    if (length(dim) == 1) {#
+        as(rep_len(0, dim), class)#
+    } else {#
+        res <- as(rep_len(0, prod(dim)), class)#
+        dim(res) <- dim#
+        res#
+    }#
+}#
+zeros()#
+zeros(5)#
+zeros(c(5, 5), "character")
+rep_len(1:3, 5)
+rep_len(1:3, 2)
+prod(NULL)
+library(knitr)
+library(help = knitr)
+?kable
+apropos("fig")
+?as.roman
+as.roman(1:10)
+?match.type
+?match
+figs <- c(testfig1 = 1, testfig2 = 2)
+figs$testfig1
+figs[['testfig1']]
+figs[['testfig3']]
+ll <- list(a = 1, b = 2)
+ll$a
+ll$c
+ll[["c"]]
+ll[["a"]]
+newFig <- function (num.type = c("arabic", "roman"), prefix = "")#
+{#
+    num.type <- match.arg(num.type)#
+    num.conv <- switch(num.type,#
+        arabic = function (x) x,#
+        roman = function (x) utils::as.roman(x))#
+    prefix <- as.character(prefix[1])#
+    figs <- list()#
+    ## Return a function that creates the enumeration of the items#
+    function (label, reset = FALSE) {#
+        ## Do we reset figs?#
+        if (isTRUE(reset)) figs <<- list()#
+        value <- figs[[label]]#
+        ## Does it exists?#
+        if (is.null(value)) {#
+            value <- paste0(prefix, num.conv(length(figs) + 1))#
+            ## Record this item in figs#
+            figs[[label]] <- value#
+            figs <<- figs#
+        }#
+        value#
+    }#
+}#
+#
+fig <- newFig(prefix = "1.")#
+fig("fig1")#
+fig("fig2")#
+fig("fig1")
+fig <- newFig(num.type = "roman", prefix = "1.")#
+fig("fig1")#
+fig("fig2")#
+fig("fig1")
+apropos("tab")
+newLabelling <- function (num.type = c("arabic", "roman"), prefix = "")#
+{#
+    num.type <- match.arg(num.type)#
+    num.conv <- switch(num.type,#
+        arabic = function (x) x,#
+        roman = function (x) utils::as.roman(x))#
+    prefix <- as.character(prefix[1])#
+    figs <- list()#
+    ## Return a function that creates the enumeration of the items#
+    function (label, reset = FALSE) {#
+        ## Do we reset figs?#
+        if (isTRUE(reset)) figs <<- list()#
+        ## Do we have a label? If not, return an empty string.#
+        if (missing(label)) return(invisible(""))#
+        label <- deparse(substitute(label))#
+        value <- figs[[label]]#
+        ## Does it exists?#
+        if (is.null(value)) {#
+            value <- paste0(prefix, num.conv(length(figs) + 1))#
+            ## Record this item in figs#
+            figs[[label]] <- value#
+            figs <<- figs#
+        }#
+        value#
+    }#
+}#
+#
+fig <- newLabelling(num.type = "roman", prefix = "1.")#
+fig("fig1")#
+fig("fig2")#
+fig("fig1")#
+#
+fig(my_figure1)
+fig("my_figure1")
+fig(my_figure1)
+newLabelling <- function (num.type = c("arabic", "roman"), prefix = "")#
+{#
+    num.type <- match.arg(num.type)#
+    num.conv <- switch(num.type,#
+        arabic = function (x) x,#
+        roman = function (x) utils::as.roman(x))#
+    prefix <- as.character(prefix[1])#
+    figs <- list()#
+    ## Return a function that creates the enumeration of the items#
+    function (label, reset = FALSE) {#
+        ## Do we reset figs?#
+        if (isTRUE(reset)) figs <<- list()#
+        ## Do we have a label? If not, return an empty string.#
+        if (missing(label)) return(invisible(""))#
+        value <- figs[[label]]#
+        ## Does it exists?#
+        if (is.null(value)) {#
+            value <- paste0(prefix, num.conv(length(figs) + 1))#
+            ## Record this item in figs#
+            figs[[label]] <- value#
+            figs <<- figs#
+        }#
+        value#
+    }#
+}#
+#
+fig <- newLabelling(num.type = "roman", prefix = "1.")#
+fig("fig1")#
+fig("fig2")#
+fig("fig1")
+newLabelling <- function (type = c("arabic", "roman"), prefix = "")#
+{#
+    type <- match.arg(type)#
+    conv <- switch(type,#
+        arabic = function (x) x,#
+        roman = function (x) utils::as.roman(x))#
+    prefix <- as.character(prefix[1])#
+    labels <- list()#
+    ## Return a function that creates the enumeration of the items#
+    function (label, reset = FALSE) {#
+        ## Do we reset figs?#
+        if (isTRUE(reset)) labels <<- list()#
+        ## Do we have a label? If not, return an empty string.#
+        if (missing(label)) return(invisible(""))#
+        value <- labels[[label]]#
+        ## Does it exists?#
+        if (is.null(value)) {#
+            value <- paste0(prefix, conv(length(labels) + 1))#
+            ## Record this item in labels#
+            labels[[label]] <- value#
+            labels <<- labels#
+        }#
+        value#
+    }#
+}#
+#
+## Default items#
+fig <- newLabelling()#
+tab <- newLabelling()#
+eq <- newLabelling()
+fig()
+fig("a")
+fig("b")
+fig("c")
+fig("b")
+library(svSweave)
+fig()
+fig("a")
+fig("b")
+fig("a")
+fig("b", reset = TRUE)
+fig("a")
+library(knitr)
+args(kable)
+kable
+?kable
+rep_len(1:3, 2)
+library(svSweave)
+example(fig)
+apropos("str")
+grepl("$$$$", "some text $$$$ here")
+grepl("$$$$", "some text $$$ here")
+grepl("%%%%", "some text %%%% here")
+grepl("%%%%", "some text %%% here")
+grepl("@@@@", "some text @@@@ here")
+grepl("@@@@", "some text @@@ here")
+grepl("####", "some text #### here")
+grepl("####", "some text ### here")
+apropos("names)")
+apropos("names")
+?variable.names
+?make.names
+make.names("This is a string #")
+gsub("\\.", "-", make.names("This is a string #"))
+?make.names
+install.packages("devtools")
+devtools::install_github("phgrosjean/aurelhy")
+library("aurelhy")
+library(help = "aurelhy")#
+?aurelhy
+devtools::install_github("jimhester/covr")
+covr::codecov()
+library("covr")
+?covr
+?codecov
+codecov()
+setwd("~/Documents/Pgm/Github/EcoNum/EN-test")
+codecov()

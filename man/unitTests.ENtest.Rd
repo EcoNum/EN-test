@@ -14,8 +14,12 @@
 \examples{
 if (require(svUnit)) {
     clearLog()
-    runTest(svSuite("package:ENtest"), "ENtest")
+	
+  \dontrun{
+    ## This test is now moved to the tests directory
+	runTest(svSuite("package:ENtest"), "ENtest")
  
+  }
   \dontshow{
     ## Put here test units you want to run during R CMD check but
 	## don't want to show or run with example(unitTests.ENtest)
