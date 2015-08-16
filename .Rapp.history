@@ -1,167 +1,3 @@
-iris[1]
-Iris[1]
-Iris[1,]
-iris[1,]
-Iris
-class(Iris)
-class(Iris) <- c("dataframe", class(Iris))
-dplyr:::print.tbl
-dplyr:::print.tbl_dt
-dplyr:::print.tbl_df
-apropos("dataframe")
-tbl_dt
-setattr
-library(data.table)#
-library(dplyr)#
-dataframe <- function (data, copy = TRUE) {#
-    data <- dplyr::tbl_dt(data, copy = copy)#
-    ## Superclass is 'dataframe'#
-    data.table::setattr(data, "class", c("dataframe", class(data)))#
-    data#
-}
-trunc_mat
-dim_desc
-print.dataframe <- function (x, ..., n = NULL, width = NULL) #
-{#
-    cat("Source: dataframe ", dplyr::dim_desc(x), "\n\n", sep = "")#
-    print(dplyr::trunc_mat(x, n = n, width = width))#
-    invisible(x)#
-}
-apropos("as.tbl")
-as.tbl
-as.tbl.data.frame
-dplyr:::as.tbl.data.frame
-as.tbl.data.table
-as.tbl_cube
-?as.tbl_cube
-as.tbl
-methods("as.tbl")
-dplyr:::as.tbl.tbl
-dplyr:::as.tbl.data.table
-apropos("is.tbl")
-is.tbl
-methods("tbl_dt")
-methods(class = "tbl_dt")
-library(data.table)#
-library(dplyr)#
-dataframe <- function (data, copy = TRUE)#
-{#
-    data <- dplyr::tbl_dt(data, copy = copy)#
-    ## Superclass is 'dataframe'#
-    data.table::setattr(data, "class", c("dataframe", class(data)))#
-    data#
-}#
-#
-## as.dataframe is a generic#
-as.dataframe <- function (x, ...)#
-    UseMethod("as.dataframe")#
-#
-## Trivial    #
-as.dataframe.dataframe <- function (x, ...)#
-    x#
-#
-## On the contrary to as_tbl, both data.frame and data.table are#
-## converted into the same object inheriting from tbl_dt, data.table and data.frame#
-as.dataframe.data.frame <- function (x, ...)#
-    dataframe(x, ...)#
-#
-as.dataframe.data.table <- function (x, ...)#
-    dataframe(x, ...)#
-## Check if an object is a dataframe#
-is.dataframe <- function (x)#
-    inherits(x, "dataframe")#
-#
-## Inspired from dplyr:::print.tbl_dt()#
-print.dataframe <- function (x, ..., n = NULL, width = NULL) #
-{#
-    cat("Source: dataframe ", dplyr::dim_desc(x), "\n\n", sep = "")#
-    print(dplyr::trunc_mat(x, n = n, width = width))#
-    invisible(x)#
-}
-head
-head.tbl
-dplyr:::head.tbl
-dplyr:::head.tbl_dt
-head(Iris)
-class(head(Iris))
-head(iris) # But converts into a data.frame => rewrite it!#
-Iris[1] # This is the data.table [ method!#
-iris[1] # Different from this one!
-class(Iris[1])
-class(Iris[1,])
-class(Iris[, 1])
-Iris[, 1]
-Iris[, 1, 1]
-Iris[, 1]
-iris[, 1]
-class(as.data.frame(Iris))
-class(as.dataframe(Iris))
-Iris
-print.dataframe <- function (x, ..., n = NULL, width = NULL) #
-{#
-    cat("Source: local dataframe ", dplyr::dim_desc(x), "\n\n", sep = "")#
-    print(dplyr::trunc_mat(x, n = n, width = width))#
-    invisible(x)#
-}
-Iris
-apropos("prettyprint")
-names(Iris)
-print.dataframe <- function (x, ..., n = NULL, width = NULL) #
-{#
-    cat("Source: local dataframe ", dplyr::dim_desc(x), "\n\n", sep = "")#
-    print(dplyr::trunc_mat(x, n = n, width = width))#
-    invisible(x)#
-}
-apropos("prettyPrint")
-prettyPrint <- function (x, ...)#
-{#
-    ## Separate label from unit with __#
-    x <- strsplit(x, "__", fixed = TRUE)#
-    x#
-}
-prettyPrint(c("Sepal_length__mm", "Test__kg__comment", "aaa"))
-prettyPrint <- function (x, ...)#
-{#
-    ## Separate label from unit with __#
-    x <- strsplit(x, "__", fixed = TRUE)#
-    x <- sapply(x, function (x)#
-        if (length(x) < 2) x else paste0(x[1], " (", x[2], ")")#
-    )#
-    x#
-}
-prettyPrint(c("Sepal_length__mm", "Test__kg__comment", "aaa"))
-prettyPrint <- function (x, ...)#
-{#
-    ## Format label#
-    formatLabel <- function (x) {#
-        gsub("_", " ", x)#
-    }#
-    ## Format unit (do nothing for the moment)#
-    formatUnit <- function (x) {#
-        x#
-    }#
-    ## Separate label from unit with __#
-    x <- strsplit(x, "__", fixed = TRUE)#
-    x <- sapply(x, function (x)#
-        if (length(x) < 2) {#
-            formatLabel(x)#
-        } else {#
-            paste0(formatLabel(x[1]), " (", formatUnit(x[2]), ")")#
-        }#
-    )#
-    x#
-}
-prettyPrint(c("Sepal_length__mm", "Test__kg__comment", "aaa"))
-print.dataframe <- function (x, ..., n = NULL, width = NULL) #
-{#
-    cat("Source: local dataframe ", dplyr::dim_desc(x), "\n\n", sep = "")#
-    labels <- prettyPrint(names(x))#
-    if (!identical(labels, names(x)))#
-        print(labels)#
-    print(dplyr::trunc_mat(x, n = n, width = width))#
-    invisible(x)#
-}
-Iris
 prettyPrint(names(Iris))
 names(Iris) <- c("Sepal_length__mm", "Sepal_width__mm", "Petal_length__mm",#
     "Petal_width__mm", "Species")#
@@ -512,16 +348,118 @@ apropos("names")
 make.names("This is a string #")
 gsub("\\.", "-", make.names("This is a string #"))
 ?make.names
-install.packages("devtools")
-devtools::install_github("phgrosjean/aurelhy")
-library("aurelhy")
-library(help = "aurelhy")#
-?aurelhy
-devtools::install_github("jimhester/covr")
-covr::codecov()
 library("covr")
-?covr
-?codecov
-codecov()
 setwd("~/Documents/Pgm/Github/EcoNum/EN-test")
-codecov()
+cov <- package_coverage()
+setwd("~/Documents/Pgm/Github/EcoNum")
+cov <- package_coverage()
+setwd("~/Documents/Pgm/Github/EcoNum/EN-test")
+cov <- package_coverage()
+?package_coverage
+setwd("/Library/Frameworks/R.framework/Versions/3.2/Resources/EN-test")
+setwd("/Library/Frameworks/R.framework/Versions/3.2/Resources")
+dir()
+setwd("/Library/Frameworks/R.framework/Versions/3.2/Resources/library")
+dir()
+setwd("/Library/Frameworks/R.framework/Versions/3.2/Resources/library/ENtest")
+cov <- package_coverage()
+package_coverage
+run_tests
+covr:::run_tests
+cov <- package_coverage(type = "all")
+setwd("~/Documents/Pgm/Github/EcoNum/EN-test")
+cov <- package_coverage(type = "all")
+cov <- package_coverage(type = "all")
+coveralls()
+args(package_coverage)
+?package_coverage
+package_coverage
+covr:::run_tests
+covr:::test_directory
+library(RUnit)
+install.packages("RUnit")
+library(RUnit)
+library(help = RUnit)
+?RUnit
+covr:::test_directory <- function (path) #
+{#
+    if (file.exists(file.path(path, "tests"))) {#
+        file.path(path, "tests")#
+    }#
+    else if (file.exists(file.path(path, "inst", "tests"))) {#
+        file.path(path, "inst", "tests")#
+    }#
+    else if (file.exists(file.path(path, "unitTests"))) {#
+        file.path(path, "unitTests")#
+    }#
+    else if (file.exists(file.path(path, "inst", "unitTests"))) {#
+        file.path(path, "inst", "unitTests")#
+    }#
+    else {#
+        stop("No testing directory found", call. = FALSE)#
+    }#
+}
+test_directory <- function (path) #
+{#
+    if (file.exists(file.path(path, "tests"))) {#
+        file.path(path, "tests")#
+    }#
+    else if (file.exists(file.path(path, "inst", "tests"))) {#
+        file.path(path, "inst", "tests")#
+    }#
+    else if (file.exists(file.path(path, "unitTests"))) {#
+        file.path(path, "unitTests")#
+    }#
+    else if (file.exists(file.path(path, "inst", "unitTests"))) {#
+        file.path(path, "inst", "unitTests")#
+    }#
+    else {#
+        stop("No testing directory found", call. = FALSE)#
+    }#
+}
+covr:::run_tests()
+cov <- package_coverage(type = "all")
+library(svUnit)
+(checkException(1+1, "'1+1' raises an exception"))
+?coverall
+?codecov
+?coveralls
+apropos("check")
+checkEqualsNumeric(1, 2/2)
+(checkEqualsNumeric(1, 2/2))
+(checkEqualsNumeric(1, 2/3))
+(1:3)^3
+(svUnit::checkEqualsNumeric(1, 2/2, "cube(1:3 must return 1, 8, 27)"))
+cube <- function (x)#
+{#
+    if (!is.numeric(x))#
+        stop("'x' must be numeric")#
+    x^3#
+}
+cube(1:3)
+(checkEqualsNumeric(c(1, 8, 27), cube(1:3), "cube(1:3 must return 1, 8, 27)"))
+cube(2)
+cube(0)
+cube(-1)
+cube(-2)
+cube(NA)
+cube(NaN)
+is.nan(cube(NaN))
+(checkTrue(is.nan(cube(NaN)), "cube(NaN) must return NaN"))
+options()$repos
+options(repos = c(CRAN=\"http://cran.r-project.org\"))
+options(repos = c(CRAN = "http://cran.r-project.org"))
+options()$repos
+library(PhGcode)
+?cube
+cube(1L)
+?PhGcode
+library(pastecs)
+install.packages("pastecs")
+library(pastecs)
+abund(1:10)
+unclass(abund(1:10))
+abund(1:10)$data
+(checkEquals("1:10", abund(1:10)$data))
+(checkEquals("1:100", abund(1:10)$data))
+abund("a")
