@@ -30,6 +30,4 @@ test_R <- svTest(function () {
 testEN <- function () {
 	checkTrue(TRUE, "a fake test... replace with real one!")
 	checkException(log("a"), "log(\"a\") raises an exception")
-	
-	checkException(1+1, "'1+1' raises an exception")
 }
