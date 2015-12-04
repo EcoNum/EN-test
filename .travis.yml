@@ -34,10 +34,28 @@ env:
 #  - libcurl4-openssl-dev
 #  - libxml2-dev
 r_binary_packages:
+  # For covr
+  - jsonlite  
+  - devtools
+  - httr
+  - crayon
+  - htmltools
+  - knitr
+  #- rex # Fails to compile for precise in Rutter's PPA
+  # For rex
+  - magrittr
+  - lazyeval
+  # For seacarb
+  - oce
+  - gsw
+  # For tests
   - svUnit
   
 r_packages:
+  # Dependencies (not in Rutter's PPA)
   - seacarb
+  # For coverage (fails to compile in Rutter's PPA)
+  - rex
   - covr
 
 # Install the bleeding edge version of a package from github (eg to pick
