@@ -6,12 +6,12 @@
 # ...
 
 ## Create a very simple 'svTest' object
-test_R <- svTest(function () {
+test_R <- svTest(function() {
 	checkTrue(1 < 2)
 })
 
 ## The test cases
-.setUp <- function () {
+.setUp <- function() {
 	## Executed before each test function
 	# ...
 
@@ -19,15 +19,15 @@ test_R <- svTest(function () {
 	foo <- function(x) return(x)
 }
 
-.tearDown <- function () {
+.tearDown <- function() {
 	## Executed after each test function
 	## Restore previous exclusion list
 	# ...
 	## Remove our object with tests in .GlobalEnv
-	rm(svSuite.foo, svSuite.bar, test_svSuite, envir = .GlobalEnv)
+	rm(foo, test_R, envir = .GlobalEnv)
 }
 
-testEN <- function () {
+test_EN <- function() {
 	checkTrue(TRUE, "a fake test... replace with real one!")
 	checkException(log("a"), "log(\"a\") raises an exception")
 }

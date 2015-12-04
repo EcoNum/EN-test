@@ -7,25 +7,27 @@
   \code{example(unitTests.ENtest)}. Tests are in \code{runit*.R} files located
   in the '/unitTests' subdirectory or one of its subdirectories ('/inst/unitTests'
   and subdirectories in package sources).
+
+  Note: this is disable for R CMD check, but you can run it manually from here.
 }
 
 \author{Philippe Grosjean (\email{phgrosjean@sciviews.org})}
 
 \examples{
 if (require(svUnit)) {
-    clearLog()
-	
+  #clearLog()
+
   \dontrun{
-    ## This test is now moved to the tests directory
-	runTest(svSuite("package:ENtest"), "ENtest")
- 
+  ## This test is now moved to the tests directory
+	#runTest(svSuite("package:ENtest"), "ENtest")
+
   }
   \dontshow{
-    ## Put here test units you want to run during R CMD check but
+  ## Put here test units you want to run during R CMD check but
 	## don't want to show or run with example(unitTests.ENtest)
   }
-    ## Check errors at the end (needed to interrupt R CMD check)
-    errorLog()
+  ## Check errors at the end (needed to interrupt R CMD check)
+  #errorLog()
 }
 }
 

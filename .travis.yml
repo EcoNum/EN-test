@@ -1,10 +1,22 @@
 language: r
 
-# Be strict when checking our package
-warnings_are_errors: true
+os:
+  - linux
+  - osx
+
+# Whitelist branches
+branches:
+  only:
+    - master
 
 # Allow for sudo commands
 sudo: required
+
+# Be strict when checking our package
+warnings_are_errors: true
+# Note: can also add --no-build-vignettes to both
+r_build_args: --no-manual --no-resave-data
+r_check_args: --no-manual
 
 # Email notifications
 notifications:
@@ -18,19 +30,22 @@ env:
    - CRAN: http://cran.rstudio.com
 
 # System dependencies for HTTP calling
-apt_packages:
-  - libcurl4-openssl-dev
-  - libxml2-dev
+#apt_packages:
+#  - libcurl4-openssl-dev
+#  - libxml2-dev
 r_binary_packages:
   - svUnit
-  - dplyr
+  
+r_packages:
+  - seacarb
+  - covr
 
 # Install the bleeding edge version of a package from github (eg to pick
 # up a not-yet-released bugfix)
 # readr is to read csv, tsv and fwf into R
-r_github_packages:
-  - hadley/readr
-  - jimhester/covr
+#r_github_packages:
+#  - hadley/readr
+#  - jimhester/covr
 
 after_success:
-  - Rscript -e 'covr::coveralls()' 
+  - Rscript -e 'covr::codecov()' 

@@ -1,5 +1,13 @@
 ## Carbochemostat calculation functions
 
+#' This is data to be included in my package
+#'
+#' @name CC110315
+#' @docType data
+#' @keywords data
+"CC110315"
+
+
 #' Flux calculation for a variable from a chemdata object.
 #'
 #' With the carbochemostat, fluxes are calculated from the weight balance
@@ -16,20 +24,18 @@
 #'   for the calculations.
 #' @param data A \code{chemdata} object, which default to \code{chemostat}.
 #' @return A \code{data.frame} with time and flux for the variable(s)
+#' @export
 #' @examples
-#' flux("")
-#'
-#' donrun{
-#' flux("NH3", data = chem01)   
+#' \dontrun{
+#' flux("NH3", data = chem01)
 #' }
-flux <- function (var, data = chemostat)
-{
-    if (!is.character(var))
-        stop("'var' must be a character vector")
-    if (!inherits(data, "chemdata"))
-        stop("'data' must be a 'chemdata' object")
-    ## Return a fake result for now
-    NULL
+flux <- function(var, data) {
+  if (!is.character(var))
+    stop("'var' must be a character vector")
+  if (!inherits(data, "chemdata"))
+    stop("'data' must be a 'chemdata' object")
+  ## Return a fake result for now
+  NULL
 
 ## PhG: to be reworked according to new Ids!
 #flux <- function(var, data = chemostat){
@@ -44,13 +50,13 @@ flux <- function (var, data = chemostat)
 #        A <- rbind(A1, A)
 #        S$WR__kg <- A$WR__kg
 #        S$WR__kg [1] <- S$W__kg[1]
-#        S$W__kg[1] <- 0 
+#        S$W__kg[1] <- 0
 #        C1 <- S[[var]]* S$WR__kg
 #        C2 <- S[[var]]* (S$WR__kg+S$W__kg) - A[[var]]* A$W__kg
 #        res[[paste("R",R,sep="")]] <- C2[-1] - C1[-length(C1)]
-#        
+#
 #    }
-#    res 
+#    res
 #}
 
 ###Example (this should be an example dataset in the package)
@@ -63,7 +69,7 @@ flux <- function (var, data = chemostat)
 #'
 #' Concentration of the solute (i.e., the variable) over time is extracted from
 #' \code{data}
-#' 
+#'
 #' @details
 #' TODO: put some more info here...
 #'
@@ -77,18 +83,16 @@ flux <- function (var, data = chemostat)
 #'   for the calculations.
 #' @param data A \code{chemdata} object, which default to \code{chemostat}.
 #' @return A \code{data.frame} with time and concentration for the variable(s)
+#' @export
 #' @examples
-#' conc("")
-#'
-#' donrun{
-#' conc("NH3", data = chem01)   
+#' \dontrun{
+#' conc("NH3", data = chem01)
 #' }
-conc <- function (var, data = chemostat)
-{
-    if (!is.character(var))
-        stop("'var' must be a character vector")
-    if (!inherits(data, "chemdata"))
-        stop("'data' must be a 'chemdata' object")
-    ## Return a fake result for now
-    NULL
+conc <- function(var, data) {
+  if (!is.character(var))
+    stop("'var' must be a character vector")
+  if (!inherits(data, "chemdata"))
+    stop("'data' must be a 'chemdata' object")
+  ## Return a fake result for now
+  NULL
 }
