@@ -2,8 +2,8 @@
 # Test code for EcoNum
 
 image:https://travis-ci.org/EcoNum/EN-test.svg?branch=master["Linux & OSX Build Status", link="https://travis-ci.org/EcoNum/EN-test"]
-image:https://ci.appveyor.com/api/projects/status/github/phgrosjean/en-test?branch=master&svg=true["Win Build Status",
-link="http://ci.appveyor.com/project/phgrosjean/en-Test"]
+image:https://ci.appveyor.com/api/projects/status/750dxtbp6ukrkluf?svg=true["Win Build Status",
+link="http://ci.appveyor.com/project/phgrosjean/en-test"]
 image:https://img.shields.io/codecov/c/github/EcoNum/EN-test/master.svg["Coverage Status", link="https://codecov.io/github/EcoNum/EN-test?branch=master"]
 //image:https://coveralls.io/repos/EcoNum/EN-test/badge.svg?branch=master&service=github["Coverage Status", link="https://coveralls.io/github/EcoNum/EN-test?branch=master"]
 image:http://www.r-pkg.org/badges/version/ENtest["CRAN Status", link="http://cran.r-project.org/package=ENtest"]
