@@ -9,7 +9,6 @@ Author: Philippe Grosjean [aut, cre]
 Maintainer: Philippe Grosjean <phgrosjean@sciviews.org>
 Description: Test R code for EcoNum analyses.
 Depends: R (>= 3.0-0), seacarb
-# Cannot put seacarb in Imports because it generates an error!
 Suggests: svUnit
 License: MIT + file LICENSE
 URL: https://github.com/EcoNum/EN-test

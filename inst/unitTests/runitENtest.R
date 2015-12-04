@@ -55,7 +55,7 @@ test_EN <- function() {
     msg = "reactorId() extracts reactor Id")
 
   itm <- c(0, 0, 1, 1, 2, 3, 2, 3)
-  checkIdentical(itm, itemNbr(newIds),
+  checkEqualsNumeric(itm, itemNbr(newIds),
     msg = "itemNbr() extracts item number")
 
   bot <- c("a", "a", "a", "b", "c", "d", "e", "f")
@@ -63,7 +63,7 @@ test_EN <- function() {
     msg = "bottleId() extracts bottle Id")
 
   cyc <- c(0, 0, 1, 4, 5, 2, 2, 6)
-  checkIdentical(cyc, cycleNbr(newIds),
+  checkEqualsNumeric(cyc, cycleNbr(newIds),
     msg = "cycleNbr() extracts cycle number")
 
   typ <- c("s", "s", "a", "a", "s", "s", "a", "s")
