@@ -13,7 +13,8 @@ test_R <- svTest(function() {
 ## The test cases
 .setUp <- function() {
 	## Executed before each test function
-	# ...
+	library(ENtest)
+  # ...
 
 	## Create a function (just an example, replace with real code here)
 	foo <- function(x) return(x)
@@ -28,6 +29,8 @@ test_R <- svTest(function() {
 }
 
 test_EN <- function() {
-	checkTrue(TRUE, "a fake test... replace with real one!")
-	checkException(log("a"), "log(\"a\") raises an exception")
+  # Test a single pHDrift() calculation
+  checkEqualsNumeric(7.532,
+    round(pHDrift(pHini = 7.5, Alk = 0.00230, TimeElapsed__min = 60), 3),
+    msg = "A single pHDrift( calculation")
 }
