@@ -1,45 +1,43 @@
-## pH calculation functions
-
-#' Compute the pH of additions after partial equilibration with air
+#' Compute the pH drift in seawater after partial equilibration with air
 #'
-#' Adding a sample of seawater into another one, and calculate the final pH,
-#' also considering equilibration with the gas phase during equilibration.
+#' Calculate the final pH of seawater after a given time considering
+#' equilibration with a mixed gas phase considered as infinitely large
+#' (constant pCO2air).
 #'
-#' @param pHini The initial pH.
-#' @param Alk The initial alkalinity in mmol/kg-sw.
-#' @param TimeElapsed__min Time elapsed waiting for equilibration
-#' @param CO2ref CO2 partial pressure of the reference gas phase
-#' @param tau Cinetic constant for gas-liquid exchange of CO2 in the systme
+#' @param pHini The initial pH in the seawater.
+#' @param alk The initial alkalinity in mmol/kg.
+#' @param elapsed Time elapsed waiting for equilibration in min.
+#' @param pCO2air CO2 partial pressure of the gas phase in microatm
+#' @param tau Cinetic constant for gas-liquid exchange of CO2 in the system.
 #'
 #' @return the final pH
 #' @export
-#' @import seacarb
+#' @importFrom seacarb carb
 #'
 #' @examples
-#' pHDrift(pHini = 7.5, Alk = 0.00230, TimeElapsed = 60)
-#' pHDrift(pHini = c(7, 8), Alk = 0.00230, TimeElapsed = c(60, 12000))
-#' plot(1:500, pHDrift(pHini = 7, Alk = 0.00230, TimeElapsed = 1:500))
-pHDrift <- function(pHini, Alk, TimeElapsed__min, CO2ref = 400, tau = 560.2) {
-  # Water/gas exchange
-  # x = time
-  # delta0 =  delta pCO2 between water and air
-  # tau = cinetic constant, estimated 560.2 min at 25C
-  waterGasFlux <- function(x, delta0, tau) delta0 * exp(-(x / tau))
+#' pHDrift(pHini = 7.5, alk = 0.00230, elapsed = 60)
+#' pHDrift(pHini = c(7, 8), alk = 0.00230, elapsed = c(60, 12000))
+#' plot(1:500, pHDrift(pHini = 7, alk = 0.00230, elapsed = 1:500))
+pHDrift <- function(pHini, alk, elapsed, pCO2air = 400, tau = 560) {
+  # Water/gas exchange of the gas with time
+  # t = time
+  # delta0 =  delta pGas between water and air
+  # tau = cinetic constant
+  waterGasFlux <- function(t, delta0, tau)
+    delta0 * exp(-(t / tau))
 
-  #library(seacarb)
-  # Convert initial pH and Alk into pCO2
-  # TO DO: memoise here
-  pCO2ini <- carb(8, pHini, Alk)$pCO2
+  # Convert initial pH and alk into fCO2 (fugacity in microatm)
+  fCO2ini <- carb(8, pHini, alk)$fCO2
 
-  #Compute initial delta CO2
-  dpCO2ini <- pCO2ini - CO2ref
+  # Compute initial delta CO2
+  dfCO2ini <- fCO2ini - pCO2air
 
-  # Compute the delta pCO2 after waiting x minutes
-  dpCO2 <- waterGasFlux(TimeElapsed__min, dpCO2ini, tau)
+  # Compute the delta pCO2 after TimeElapsed__min
+  dfCO2final <- waterGasFlux(elapsed, delta0 = dfCO2ini, tau = tau)
 
-  #Compute the resulting pCO2 in the water
-  pCO2f <- CO2ref + dpCO2
+  # Compute the resulting fCO2 in the water
+  fCO2final <- pCO2air + dfCO2final
 
   # Return the resulting pH
-  carb(24, pCO2f, Alk)$pH
+  carb(24, fCO2final, alk)$pH
 }

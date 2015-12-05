@@ -3,8 +3,6 @@
 .git
 .git/*
 README.md
-NEWS.md
-FAQ.md
 Makefile
 .Rprofile
 ^\.Rproj\.user$

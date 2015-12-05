@@ -1,16 +1,12 @@
-## Functions to extract information for chemostat Ids
-## Old convention:
-## Reactor or set = [R|A-C], reactor # = [1-4] bottle series # = [I|II|III],
-## addition or sampling = [a|s], cycle = [0-9]+
-## Ex.: R1Is0, A3IIa6, C4IIIs8
-##
-## New convention:
-## Reactor # [A-Z], reactor or set [0-9], bottle series # = [a-z],
-## cycle [0-9][0-9], addition or sampling [a|s]
-
-#' Conversion from old to new chemostat Ids, and check these Ids
+#' Convert from old to new chemostat Ids, and check these Ids
 #'
-#' @param Ids The old Ids
+#' Ids are short code that fully identify a carbochemostat sample. It is in the
+#' following format: Reactor # [A-Z], reactor or set [0-9],
+#' bottle series # = [a-z], cycle [0-9][0-9], and addition or sample [a | s]. In
+#' the old format, it was: Reactor or set = [R | A-C], reactor # = [1-4],
+#' bottle series # = [I | II | III], addition or sample = [a | s], cycle = [0-9]+
+#'
+#' @param Ids The identifiers (either in old, or in new format).
 #' @export
 #'
 #' @examples

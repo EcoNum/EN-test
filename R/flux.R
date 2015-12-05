@@ -1,6 +1,6 @@
-## Carbochemostat calculation functions
-
-#' This is data to be included in my package
+#' Example of a nutrient data from the carbochemostat
+#'
+#' A data frame with NH3, NO2, NO3 and PO4 measurements fro a carbochemostat.
 #'
 #' @name CC110315
 #' @docType data
@@ -29,6 +29,9 @@
 #' \dontrun{
 #' flux("NH3", data = chem01)
 #' }
+#'
+#' #load("~/Desktop/JT09/chemostat_JT09.Rdata)
+#' # flux("PO4__ui", chemostat_JT09)
 flux <- function(var, data) {
   if (!is.character(var))
     stop("'var' must be a character vector")
@@ -59,11 +62,8 @@ flux <- function(var, data) {
 #    res
 #}
 
-###Example (this should be an example dataset in the package)
-##load("~/Desktop/JT09/chemostat_JT09.Rdata)
-##chemostat <- chemostat_JT09
-## flux("PO4__ui")
 }
+
 
 #' Concentration calculation for a variable from a chemdata object.
 #'

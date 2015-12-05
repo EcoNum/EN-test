@@ -29,9 +29,11 @@ test_R <- svTest(function() {
 }
 
 test_EN <- function() {
+  # flux() and conc() are not implemented yet!
+
   # Test a single pHDrift() calculation
-  checkEqualsNumeric(7.532,
-    round(pHDrift(pHini = 7.5, Alk = 0.00230, TimeElapsed__min = 60), 3),
+  checkEqualsNumeric(7.534,
+    round(pHDrift(pHini = 7.5, alk = 0.00230, elapsed = 60), 3),
     msg = "A single pHDrift calculation")
 
   # Test checkId

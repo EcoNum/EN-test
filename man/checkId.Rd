@@ -7,7 +7,7 @@
 \alias{itemNbr}
 \alias{reactorId}
 \alias{typeId}
-\title{Conversion from old to new chemostat Ids, and check these Ids}
+\title{Convert from old to new chemostat Ids, and check these Ids}
 \usage{
 checkId(Ids)
 
@@ -22,10 +22,14 @@ cycleNbr(Ids)
 typeId(Ids)
 }
 \arguments{
-\item{Ids}{The old Ids}
+\item{Ids}{The identifiers (either in old, or in new format).}
 }
 \description{
-Conversion from old to new chemostat Ids, and check these Ids
+Ids are short code that fully identify a carbochemostat sample. It is in the
+following format: Reactor # [A-Z], reactor or set [0-9],
+bottle series # = [a-z], cycle [0-9][0-9], and addition or sample [a | s]. In
+the old format, it was: Reactor or set = [R | A-C], reactor # = [1-4],
+bottle series # = [I | II | III], addition or sample = [a | s], cycle = [0-9]+
 }
 \section{Functions}{
 \itemize{

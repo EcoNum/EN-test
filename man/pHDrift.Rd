@@ -2,31 +2,32 @@
 % Please edit documentation in R/pH.R
 \name{pHDrift}
 \alias{pHDrift}
-\title{Compute the pH of additions after partial equilibration with air}
+\title{Compute the pH drift in seawater after partial equilibration with air}
 \usage{
-pHDrift(pHini, Alk, TimeElapsed__min, CO2ref = 400, tau = 560.2)
+pHDrift(pHini, alk, elapsed, pCO2air = 400, tau = 560)
 }
 \arguments{
-\item{pHini}{The initial pH.}
+\item{pHini}{The initial pH in the seawater.}
 
-\item{Alk}{The initial alkalinity in mmol/kg-sw.}
+\item{alk}{The initial alkalinity in mmol/kg.}
 
-\item{TimeElapsed__min}{Time elapsed waiting for equilibration}
+\item{elapsed}{Time elapsed waiting for equilibration in min.}
 
-\item{CO2ref}{CO2 partial pressure of the reference gas phase}
+\item{pCO2air}{CO2 partial pressure of the gas phase in microatm}
 
-\item{tau}{Cinetic constant for gas-liquid exchange of CO2 in the systme}
+\item{tau}{Cinetic constant for gas-liquid exchange of CO2 in the system.}
 }
 \value{
 the final pH
 }
 \description{
-Adding a sample of seawater into another one, and calculate the final pH,
-also considering equilibration with the gas phase during equilibration.
+Calculate the final pH of seawater after a given time considering
+equilibration with a mixed gas phase considered as infinitely large
+(constant pCO2air).
 }
 \examples{
-pHDrift(pHini = 7.5, Alk = 0.00230, TimeElapsed = 60)
-pHDrift(pHini = c(7, 8), Alk = 0.00230, TimeElapsed = c(60, 12000))
-plot(1:500, pHDrift(pHini = 7, Alk = 0.00230, TimeElapsed = 1:500))
+pHDrift(pHini = 7.5, alk = 0.00230, elapsed = 60)
+pHDrift(pHini = c(7, 8), alk = 0.00230, elapsed = c(60, 12000))
+plot(1:500, pHDrift(pHini = 7, alk = 0.00230, elapsed = 1:500))
 }
 
