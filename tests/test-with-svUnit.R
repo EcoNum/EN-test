@@ -3,4 +3,4 @@ pkg <- "ENtest"
 library(svUnit)
 clearLog()
 runTest(svSuite(paste0("package:", pkg)), pkg)
-print(errorLog())
+errorLog()

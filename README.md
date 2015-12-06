@@ -28,7 +28,7 @@ devtools::install_github("EcoNum/EN-test")
     
 R should install all required dependencies automatically, and then it should compile and install *ENtest*.
 
-Latest devel version also available in sources and Windows binaries at [appveyor](https://ci.appveyor.com/project/phgrosjean/en-test/build/artifacts).
+Latest devel version also available in sources and Windows binaries at [appveyor](https://ci.appveyor.com/project/phgrosjean/en-test/build/artifacts) _(only available if passing last Windows build!)_.
 
 
 

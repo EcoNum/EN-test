@@ -46,14 +46,14 @@ r_binary_packages:
   - magrittr
   - lazyeval
   # For lintr
-  - pkgmaker
-  - registry
-  - rngtools
-  - gridBase
-  - NMF
-  - irlba
-  - stringdist
-  - igraph
+  #- pkgmaker
+  #- registry
+  #- rngtools
+  #- gridBase
+  #- NMF
+  #- irlba
+  #- stringdist
+  #- igraph
   # For seacarb
   - oce
   - gsw
@@ -67,7 +67,7 @@ r_packages:
   - rex
   - covr
   # For R code linting
-  - lintr
+  #- lintr
 
 # Install the bleeding edge version of a package from github (eg to pick
 # up a not-yet-released bugfix)
@@ -78,4 +78,5 @@ r_packages:
 
 after_success:
   - Rscript -e 'covr::codecov()'
-  - Rscript -e 'lintr::lint_package()'
+  # This does not work 100%: how to use lintr-bot???
+  #- Rscript -e 'lintr::lint_package()'
