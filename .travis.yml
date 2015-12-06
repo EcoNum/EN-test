@@ -66,6 +66,8 @@ r_packages:
   # For coverage (fails to compile in Rutter's PPA)
   - rex
   - covr
+  # For R code linting
+  - lintr
 
 # Install the bleeding edge version of a package from github (eg to pick
 # up a not-yet-released bugfix)
