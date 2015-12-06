@@ -45,6 +45,15 @@ r_binary_packages:
   # For rex
   - magrittr
   - lazyeval
+  # For lintr
+  - pkgmaker
+  - registry
+  - rngtools
+  - gridBase
+  - NMF
+  - irlba
+  - stringdist
+  - igraph
   # For seacarb
   - oce
   - gsw
@@ -62,8 +71,9 @@ r_packages:
 # up a not-yet-released bugfix)
 # readr is to read csv, tsv and fwf into R
 #r_github_packages:
-#  - hadley/readr
 #  - jimhester/covr
+#  - jimhester/lintr
 
 after_success:
-  - Rscript -e 'covr::codecov()' 
+  - Rscript -e 'covr::codecov()'
+  - Rscript -e 'lintr::lint_package()'

@@ -1,31 +1,18 @@
 ## runitsENtest.R test suite
 ## by Ph. Grosjean <phgrosjean@sciviews.org>
-## Run it simply by example(unitTests.ENtest)
 
-## Create a few objects we need for our tests
-# ...
-
-## Create a very simple 'svTest' object
-test_R <- svTest(function() {
-	checkTrue(1 < 2)
-})
-
-## The test cases
+## Executed before each test function
 .setUp <- function() {
-	## Executed before each test function
-	library(ENtest)
-  # ...
-
-	## Create a function (just an example, replace with real code here)
-	foo <- function(x) return(x)
+  library(svUnit)
+  library(ENtest)
+  ## Create a function (just an example, replace with real code here)
+  #foo <- function(x) return(x)
 }
 
+## Executed after each test function
 .tearDown <- function() {
-	## Executed after each test function
-	## Restore previous exclusion list
-	# ...
-	## Remove our object with tests in .GlobalEnv
-	rm(foo, test_R, envir = .GlobalEnv)
+  ## Remove the objects we create for our tests in .GlobalEnv
+  #rm(foo, envir = .GlobalEnv)
 }
 
 test_EN <- function() {
@@ -35,7 +22,9 @@ test_EN <- function() {
   checkEqualsNumeric(7.534,
     round(pHDrift(pHini = 7.5, alk = 0.00230, elapsed = 60), 3),
     msg = "A single pHDrift calculation")
+}
 
+test_checkId <- function() {
   # Test checkId
   oldIds <- c("R1Is0", "R4Is0", "A1Ia1", "A2IIa4", "B3IIIs5",
     "C4IVs2", "B1Va2", "C4VIs6")

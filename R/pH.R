@@ -27,7 +27,7 @@ pHDrift <- function(pHini, alk, elapsed, pCO2air = 400, tau = 560) {
     delta0 * exp(-(t / tau))
 
   # Convert initial pH and alk into fCO2 (fugacity in microatm)
-  fCO2ini <- carb(8, pHini, alk)$fCO2
+  fCO2ini <- seacarb::carb(8, pHini, alk)$fCO2
 
   # Compute initial delta CO2
   dfCO2ini <- fCO2ini - pCO2air
@@ -39,5 +39,5 @@ pHDrift <- function(pHini, alk, elapsed, pCO2air = 400, tau = 560) {
   fCO2final <- pCO2air + dfCO2final
 
   # Return the resulting pH
-  carb(24, fCO2final, alk)$pH
+  seacarb::carb(24, fCO2final, alk)$pH
 }

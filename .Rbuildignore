@@ -6,7 +6,8 @@ README.md
 Makefile
 .Rprofile
 ^\.Rproj\.user$
-^\.*\Rproj$
+^.*\.Rproj$
+^\.lintr$
 ^\.travis\.yml$
 ^appveyor\.yml$
-^.*\.Rproj$
+^wercker\.yml$
