@@ -58,6 +58,6 @@ test_checkId <- function() {
     msg = "cycleNbr() extracts cycle number")
 
   typ <- c("s", "s", "a", "a", "s", "s", "a", "s")
-  checkIdentical(cyc, typeId(newIds),
+  checkIdentical(typ, typeId(newIds),
     msg = "typeId() extracts type Id")
 }
