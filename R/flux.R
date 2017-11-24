@@ -68,7 +68,7 @@ flux <- function(var, data) {
 #' Concentration calculation for a variable from a chemdata object.
 #'
 #' Concentration of the solute (i.e., the variable) over time is extracted from
-#' \code{data}
+#' \code{data}.
 #'
 #' @details
 #' TODO: put some more info here...
