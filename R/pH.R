@@ -10,7 +10,8 @@
 #' @param pCO2air CO2 partial pressure of the gas phase in microatm
 #' @param tau Cinetic constant for gas-liquid exchange of CO2 in the system.
 #'
-#' @return the final pH
+#'
+#' @return  final pH
 #' @export
 #' @importFrom seacarb carb
 #'
