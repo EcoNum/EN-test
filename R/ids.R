@@ -20,28 +20,28 @@ checkId <- function(Ids) {
   if (!is.character(Ids) && !is.factor(Ids))
     stop("'Ids' must be a character string")
   Ids <- as.character(Ids)
-  ## Do we have an old format?
+  # Do we have an old format?
   oldForm <- grepl("^[A-Z][0-9]II?I?[as][0-9]+$", Ids[1])
   if (oldForm) {
-    ## R, or A, B, C, ... becomes 0 or 1, 2, 3, ...
+    # R, or A, B, C, ... becomes 0 or 1, 2, 3, ...
     reactSet <- c(R = 0, A = 1, B = 2, C = 3, D = 4, E = 5)[
       substring(Ids, 1, 1)]
-    ## Reactor 1, 2, 3, ... becomes A, B, C, ...
+    # Reactor 1, 2, 3, ... becomes A, B, C, ...
     reactor <- LETTERS[as.integer(substring(Ids, 2, 2))]
-    ## Bottle series I, II, III, IV, V, VI becomes a, b, c, d, e, f
+    # Bottle series I, II, III, IV, V, VI becomes a, b, c, d, e, f
     botSer <- c(I = "a", II = "b", III = "c", IV = "d", V = "e", VI = "f")[
       substring(Ids, 3, nchar(Ids) - 2)]
-    ## Add or sample and cycle from two last chars
+    # Add or sample and cycle from two last chars
     Ids2 <- substring(Ids, nchar(Ids) - 1)
     addOrSamp <- substring(Ids2, 1, 1)
-    ## Cycle is formatted on two digits, e.g., "01"
+    # Cycle is formatted on two digits, e.g., "01"
     cycle <- formatC(as.integer(substring(Ids2, 2, 2)), width = 2, flag = "0")
 
-    ## Calculated converted strings
+    # Calculated converted strings
     res <- paste0(reactor, reactSet, botSer, cycle, addOrSamp)
   } else res <- Ids # No conversion needed
 
-  ## Check that result is correct
+  # Check that result is correct
   if (!all(grepl("^[A-Z][0-9][a-z][0-9][0-9][as]$", res))) {
     print(res)
     stop("Error in one or more ids")

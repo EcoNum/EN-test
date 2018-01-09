@@ -1,7 +1,7 @@
 
 # Test code for EcoNum
 
-[![Linux & OSX Build Status](https://travis-ci.org/EcoNum/EN-test.svg)](https://travis-ci.org/EcoNum/EN-test.)
+[![Linux & OSX Build Status](https://travis-ci.org/EcoNum/EN-test.svg)](https://travis-ci.org/EcoNum/EN-test)
 [![Win Build Status](https://ci.appveyor.com/api/projects/status/750dxtbp6ukrkluf?svg=true)](http://ci.appveyor.com/project/phgrosjean/en-test)
 [![Coverage Status](https://img.shields.io/codecov/c/github/EcoNum/EN-test/master.svg)
 ](https://codecov.io/github/EcoNum/EN-test?branch=master)
@@ -26,10 +26,9 @@ Use `install_github()` to install the **ENtest** package:
 devtools::install_github("EcoNum/EN-test")
 ```
     
-R should install all required dependencies automatically, and then it should compile and install *ENtest*.
+R should install all required dependencies automatically, and then it should compile and install **ENtest**.
 
 Latest devel version also available in sources and Windows binaries at [appveyor](https://ci.appveyor.com/project/phgrosjean/en-test/build/artifacts) _(only available if passing last Windows build!)_.
-
 
 
 ## Usage

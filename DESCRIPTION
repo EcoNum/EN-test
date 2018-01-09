@@ -1,13 +1,12 @@
 Package: ENtest
 Type: Package
 Title: Test Code for EcoNum
+Description: Test R code for EcoNum analyses.
 Version: 1.0-1
 Date: 2015-12-04
 Authors@R: c(person("Philippe", "Grosjean", email = "phgrosjean@sciviews.org",
     role = c("aut", "cre")))
-Author: Philippe Grosjean [aut, cre]
 Maintainer: Philippe Grosjean <phgrosjean@sciviews.org>
-Description: Test R code for EcoNum analyses.
 Depends: R (>= 3.0-0), seacarb
 Suggests: svUnit
 License: MIT + file LICENSE

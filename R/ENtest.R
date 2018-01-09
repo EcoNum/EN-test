@@ -29,15 +29,15 @@
 #'   #clearLog()
 #'
 #'   \dontrun{
-#'     ## This test is now moved to the tests directory
+#'     # This test is now moved to the tests directory
 #'     #runTest(svSuite("package:ENtest"), "ENtest")
 #'
 #'   }
 #'   \dontshow{
-#'     ## Put here test units you want to run during R CMD check but
-#'     ## don't want to show or run with example(unitTests.ENtest)
+#'     # Put here test units you want to run during R CMD check but
+#'     # don't want to show or run with example(unitTests.ENtest)
 #'   }
-#'   ## Check errors at the end (needed to interrupt R CMD check)
+#'   # Check errors at the end (needed to interrupt R CMD check)
 #'   #errorLog()
 #' }
 NULL
