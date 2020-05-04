@@ -18,9 +18,6 @@
  $ W__kg  : num  0.963 0.974 0.949 0.981 0.2 ...
  $ WR__kg : num  0.963 0.974 0.949 0.981 0.963 ...
 }}
-\usage{
-CC110315
-}
 \description{
 A data frame with NH3, NO2, NO3 and PO4 measurements fro a carbochemostat.
 }
